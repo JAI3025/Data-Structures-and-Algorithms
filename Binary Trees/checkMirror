@@ -1,0 +1,15 @@
+def checkMirrorEachOther(root1, root2):
+    if root1 is None and root2 is None:
+        return True
+    if root1 is None:
+        return False
+    if root2 is None:
+        return False
+    if root1.data != root2.data:
+        return False
+    check_left = checkMirrorEachOther(root1.left, root2.right)
+    check_right = checkMirrorEachOther(root1.right, root2.left)
+    if check_left and check_right:
+        return True
+    else:
+        return False
